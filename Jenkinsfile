@@ -45,7 +45,7 @@ suites:
         - https://github.com/mattstratton/sa2017-compliance.git
     attributes:
 '''
-        sh 'sed -i "s/COOKBOOK_NAME_VAR/${JOB_BASE_NAME}/" .kitchen.jenkins.yml'
+        sh 'sed -i "s/COOKBOOK_NAME_VAR/${JOB_NAME}/" .kitchen.jenkins.yml'
         sh 'KITCHEN_YAML=".kitchen.jenkins.yml" kitchen test'
       }
     }
