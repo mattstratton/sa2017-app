@@ -38,7 +38,7 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[$JOB_BASE_NAME::default]
+      - recipe[${JOB_BASE_NAME}::default]
     verifier:
       inspec_tests:
         - test/smoke/default
