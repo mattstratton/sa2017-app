@@ -38,13 +38,14 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[${JOB_BASE_NAME}::default]
+      - recipe[COOKBOOK_NAME_VAR::default]
     verifier:
       inspec_tests:
         - test/smoke/default
         - https://github.com/mattstratton/sa2017-compliance.git
     attributes:
 '''
+        sh 'sed -i "s/COOKBOOK_NAME_VAR/${JOB_BASE_NAME}" .kitchen.jenkins.yml'
         sh 'KITCHEN_YAML=".kitchen.jenkins.yml" kitchen test'
       }
     }
