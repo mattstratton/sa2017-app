@@ -1,0 +1,26 @@
+---
+driver:
+  name: dokken
+
+provisioner:
+  name: dokken
+
+verifier:
+  name: inspec
+
+transport:
+  name: dokken
+
+platforms:
+  - name: centos-7
+    driver:
+      image: dokken/centos-7
+
+suites:
+  - name: default
+    run_list:
+      - recipe[sa2017-app::default]
+    verifier:
+      inspec_tests:
+        - test/smoke/default
+    attributes:
