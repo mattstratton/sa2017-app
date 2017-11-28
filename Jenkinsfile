@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage("Lint") {
       steps {
-        sh 'foodcritic'
+        sh 'foodcritic .'
         sh 'cookstyle'
       }
     }
