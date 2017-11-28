@@ -17,7 +17,7 @@ pipeline {
     }
     stage("Compliance") {
       steps {
-        writeFile file: '.kitchen.jenkins.yml', text: '''---
+        writeFile file: '.kitchen.jenkins.yml', text: """---
 driver:
   name: dokken
 
@@ -38,14 +38,13 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[COOKBOOK_NAME_VAR::default]
+      - recipe[${JOB_NAME}::default]
     verifier:
       inspec_tests:
         - test/smoke/default
         - https://github.com/mattstratton/sa2017-compliance.git
     attributes:
-'''
-        sh 'sed -i "s/COOKBOOK_NAME_VAR/${JOB_NAME##*/}/" .kitchen.jenkins.yml'
+"""
         sh 'KITCHEN_YAML=".kitchen.jenkins.yml" kitchen test'
       }
     }
