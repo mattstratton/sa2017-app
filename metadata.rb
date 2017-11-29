@@ -4,7 +4,7 @@ maintainer_email 'matt.stratton@gmail.com'
 license 'Apache-2.0'
 description 'Installs/Configures sa2017-app'
 long_description 'Installs/Configures sa2017-app'
-version '0.1.0'
+version '0.1.1'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 supports 'centos'
 
