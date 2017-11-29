@@ -10,7 +10,6 @@ user 'sa2017-app' do
   shell '/bin/false'
 end
 
-
 directory '/var/log' do
   owner 'sa2017-app'
 end
